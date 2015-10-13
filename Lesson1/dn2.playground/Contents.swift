@@ -5,7 +5,12 @@
 // Fibonaccijevo zaporedje iterativno
 
 func fibonacci_iter_print(n:Int) {
-    print(fibonacci_iteration(n))
+    if let num = fibonacci_iteration(n) {
+        print(num)
+    }
+    else {
+        print("Bad input.")
+    }
 }
 
 func fibonacci_iteration(var n:Int) -> Int? {
@@ -36,7 +41,12 @@ fibonacci_iter_print(-3)
 // Fibonaccijevo zaporedje rekurzivno
 
 func fibonacci_rec_print(n:Int) {
-    print(fibonacci_recursion(n))
+    if let num = fibonacci_recursion(n) {
+        print(num)
+    }
+    else {
+        print("Bad input.")
+    }
 }
 
 func fibonacci_recursion(n:Int) -> Int? {
