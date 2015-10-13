@@ -15,16 +15,18 @@ func fibonacci_iter_print(n:Int) {
 
 func fibonacci_iteration(var n:Int) -> Int? {
     if n < 0 { return nil }
-    if n == 0 { return 0 }
-    var x = 0, y = 1
-    while n > 1 {
-        let c = x + y
-        x = y
-        y = c
-        n -= 1
+    else if n == 0 { return 0 }
+    else {
+        var x = 0, y = 1
+        while n > 1 {
+            let c = x + y
+            x = y
+            y = c
+            n -= 1
+        }
+        //print(y)
+        return y
     }
-    //print(y)
-    return y
 }
 
 // Fibonacci iterativno: primeri uporabe
@@ -50,8 +52,8 @@ func fibonacci_rec_print(n:Int) {
 }
 
 func fibonacci_recursion(n:Int) -> Int? {
-    if n < 0 {return nil}
-    if n == 0 { return 0 }
+    if n < 0 { return nil }
+    else if n == 0 { return 0 }
     else if n == 1 || n == 2 { return 1 }
     else { return fibonacci_recursion(n-1)! + fibonacci_recursion(n-2)! }
 }
