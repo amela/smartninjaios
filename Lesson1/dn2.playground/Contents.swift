@@ -1,6 +1,8 @@
 //: Playground - noun: a place where people can play
 // DN2
 
+// ne skrbi za velike stevilke kot input
+
 // ############################################
 // Fibonaccijevo zaporedje iterativno
 
@@ -33,10 +35,13 @@ func fibonacci_iteration(var n:Int) -> Int? {
 fibonacci_iter_print(0)
 fibonacci_iter_print(1)
 fibonacci_iter_print(2)
-fibonacci_iter_print(5)
 fibonacci_iter_print(12)
 
 fibonacci_iter_print(-3)
+
+//ali
+print(fibonacci_iteration(0)!)
+
 
 
 // ############################################
@@ -62,7 +67,10 @@ func fibonacci_recursion(n:Int) -> Int? {
 fibonacci_rec_print(0)
 fibonacci_rec_print(1)
 fibonacci_rec_print(2)
-fibonacci_rec_print(5)
 fibonacci_rec_print(12)
 
 fibonacci_rec_print(-3)
+
+//ali
+print(fibonacci_recursion(5)!)
+
