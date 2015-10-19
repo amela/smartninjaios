@@ -8,7 +8,7 @@ prioriteta,
 stanje.
 */
 
-import UIKit
+import Foundation
 
 enum Priority {
     case Low
