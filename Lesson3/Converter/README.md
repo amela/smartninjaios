@@ -1,3 +1,5 @@
-![Alt text](/img/image3.PNG)
-![Alt text](/img/image2.PNG)
-![Alt text](/img/image1.PNG)
+# Simple Converter
+
+<img src="img/image3.PNG" width="300" />
+<img src="img/image1.PNG" width="300" />
+<img src="img/image2.PNG" width="300" />
