@@ -4,15 +4,26 @@ Napiši razred, ki predstavlja denarno enoto, katero bo pretvarjal drug razred. 
 
 import UIKit
 
-class Currency {
+protocol Comparable {
+    func compare () -> String
+}
+
+class Currency: Comparable {
     var currency: String
     
     init(currency: String) {
         self.currency = currency
     }
+    
+    func compare () -> String {
+        return(String(ConverterBrain.sharedConverter.exchangeRate["EUR2" + self.currency]))
+    }
 }
 
 class ConverterBrain {
+    
+    static let sharedConverter = ConverterBrain()
+    private init() {}
 
     let exchangeRate = ["EUR2USD": 1.13585, "EUR2EUR": 1.0, "EUR2JPY": 136.044562]
     
@@ -30,6 +41,15 @@ class ConverterBrain {
             print("Not supported.")
             return nil
         }
+    }
+}
+
+extension Double {
+    func convertDouble(valute: Currency) -> (Double, String)? {
+        if let x = ConverterBrain.sharedConverter.convert(self, startCurrency: "EUR", targetCurrency: valute) {
+            return x
+        }
+        return nil
     }
 }
 

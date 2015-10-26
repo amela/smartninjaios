@@ -11,8 +11,6 @@ import UIKit
 
 class ViewController: UIViewController,UITextFieldDelegate {
     
-    let converter = ConverterBrain()
-    
     let eurInstance = Currency(currency:"EUR")
     let usdInstance = Currency(currency:"USD")
     let jpyInstance = Currency(currency:"JPY")
@@ -29,17 +27,17 @@ class ViewController: UIViewController,UITextFieldDelegate {
                 if let num = Double(textField.text!) {
                     switch(text!) {
                     case "USD":
-                        if let usd = converter.convert(num, startCurrency:"EUR", targetCurrency:usdInstance) {
+                        if let usd = ConverterBrain.sharedConverter.convert(num, startCurrency:"EUR", targetCurrency:usdInstance) {
                             resultLabel.text = String(format: " = %.2f $", usd.0)
                         }
                     
                     case "JPY":
-                        if let jpy = converter.convert(num, startCurrency:"EUR", targetCurrency:jpyInstance) {
+                        if let jpy = ConverterBrain.sharedConverter.convert(num, startCurrency:"EUR", targetCurrency:jpyInstance) {
                             resultLabel.text = String(format: " = %.2f ¥", jpy.0)
                         }
                         
                     case "EUR":
-                        if let eur = converter.convert(num, startCurrency:"EUR", targetCurrency:eurInstance) {
+                        if let eur = ConverterBrain.sharedConverter.convert(num, startCurrency:"EUR", targetCurrency:eurInstance) {
                             resultLabel.text = String(format: " = %.2f €", eur.0)
                         }
                         
