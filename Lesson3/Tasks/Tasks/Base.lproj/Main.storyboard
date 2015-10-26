@@ -51,11 +51,19 @@
                                     <action selector="addTask:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s8C-bI-RVZ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZN-ij-cbm">
+                                <rect key="frame" x="22" y="269" width="73" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="lastTask" destination="MZN-ij-cbm" id="wG8-iP-QFM"/>
                         <outlet property="name" destination="Ek5-p5-Igh" id="FTL-DB-MLE"/>
                         <outlet property="notification" destination="bzJ-SL-Kxi" id="Znq-pq-OSU"/>
                         <outlet property="priority" destination="SWQ-qd-vD4" id="12t-XI-FFm"/>

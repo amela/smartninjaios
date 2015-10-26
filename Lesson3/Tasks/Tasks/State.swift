@@ -6,7 +6,7 @@
 //  Copyright © 2015 amela. All rights reserved.
 //
 
-enum State {
-    case Done
-    case ToDo
+enum State: Int {
+    case Done = 0
+    case ToDo = 1
 }
