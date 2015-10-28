@@ -29,27 +29,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         notification.text = String(TaskManager.sharedTM.tasks.count)
         
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        formatter.timeStyle = .ShortStyle
         
-        //let formatter = NSDateFormatter()
-        //formatter.dateStyle = NSDateFormatterStyle.LongStyle
-        //formatter.timeStyle = .MediumStyle
-        
-        //let dateString = formatter.stringFromDate((TaskManager.sharedTM.tasks.last?.dateAdd)!)
-        lastTask.text = (TaskManager.sharedTM.tasks.last?.name)! 
-        
-        //NSUserDefaults.standardUserDefaults().setObject(name, forKey: "GameName")
-        //NSUserDefaults.standardUserDefaults().synchronize()
+        let dateString = formatter.stringFromDate((TaskManager.sharedTM.tasks.last?.dateAdd)!)
+        lastTask.text = (TaskManager.sharedTM.tasks.last?.name)! + " add " + dateString
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        name.delegate = self
-        priority.delegate = self
         
-        //if let gameName = NSUserDefaults.standardUserDefaults().objectForKey("GameName") as? String {
-        //    name.text = gameName
-        //}
-        
+        notification.text = String(TaskManager.sharedTM.tasks.count)
         
         // Do any additional setup after loading the view, typically from a nib.
     }

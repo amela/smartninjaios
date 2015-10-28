@@ -12,14 +12,18 @@ class TaskManager: NSObject {
     
     static let sharedTM = TaskManager()
     
-    var tasks = NSUserDefaults.standardUserDefaults().objectForKey("tasks") as? [Task] ?? [Task]()
+    lazy var tasks: [Task] = {
+            let tasksArchived = NSUserDefaults.standardUserDefaults().objectForKey("tasks") as? NSData ?? NSData()
+            return (TaskManager.sharedTM.load(tasksArchived))
+    }()
     
     func addTask(task: Task) {
         self.tasks.append(task)
+        
         let tasksData = NSKeyedArchiver.archivedDataWithRootObject(tasks)
+        
         NSUserDefaults.standardUserDefaults().setObject(tasksData, forKey: "tasks")
-        
-        
+        NSUserDefaults.standardUserDefaults().synchronize()
     }
     
     func removeTask(task: Task) {
@@ -27,9 +31,19 @@ class TaskManager: NSObject {
             self.tasks.removeAtIndex(index)
             
             NSUserDefaults.standardUserDefaults().setObject(tasks, forKey: "tasks")
+            NSUserDefaults.standardUserDefaults().synchronize()
             
         } else {
             print("no task like this")
+        }
+    }
+    
+    func load (data: NSData) -> [Task] {
+        if let array = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [Task] {
+            return(array)
+        }
+        else {
+            return [Task]()
         }
     }
 }
@@ -44,6 +58,18 @@ extension Array {
             i += 1
         }
         return nil
+    }
+}
+
+extension TaskManager {
+    func equalStates (state: State) -> ([Task]) {
+        var retTasks = [Task]()
+        for tasks in TaskManager.sharedTM.tasks {
+            if tasks.state == state {
+                retTasks.append(tasks)
+            }
+        }
+        return retTasks
     }
 }
 
