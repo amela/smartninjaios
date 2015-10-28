@@ -4,19 +4,22 @@ Napiši razred, ki predstavlja denarno enoto, katero bo pretvarjal drug razred. 
 
 import UIKit
 
-protocol Comparable {
-    func compare () -> String
+
+func ==(lhs: Currency, rhs:Currency) -> Bool {
+    return lhs.currency == rhs.currency && lhs.exchangeRate == rhs.exchangeRate
 }
 
-class Currency: Comparable {
+func <(lhs: Currency, rhs:Currency) -> Bool {
+    return lhs.exchangeRate < rhs.exchangeRate
+}
+
+class Currency: Equatable, Comparable {
     var currency: String
+    var exchangeRate: Double
     
-    init(currency: String) {
+    init(currency: String, exchangeRate: Double) {
         self.currency = currency
-    }
-    
-    func compare () -> String {
-        return(String(ConverterBrain.sharedConverter.exchangeRate["EUR2" + self.currency]))
+        self.exchangeRate = exchangeRate
     }
 }
 
@@ -24,29 +27,20 @@ class ConverterBrain {
     
     static let sharedConverter = ConverterBrain()
     private init() {}
-
-    let exchangeRate = ["EUR2USD": 1.13585, "EUR2EUR": 1.0, "EUR2JPY": 136.044562]
     
-    func convert(value: Double, startCurrency: String, targetCurrency: Currency) -> (convertedValue: Double, targetCurrency: String)? {
-        let a2b = startCurrency + "2" + targetCurrency.currency
-        let b2a = targetCurrency.currency + "2" + startCurrency
+    func convert(value: Double, targetCurrency: Currency) -> (convertedValue: Double,
+        targetCurrency: String)? {
+            
+        let eur2x = targetCurrency.exchangeRate
         
-        if let rate = exchangeRate[a2b] {
-            return(value * rate, "Exchange Rate: " + a2b + "\(rate)")
-        }
-        else if let rate = exchangeRate[b2a] {
-            return(value * (1/rate), "Exchange Rate for " + b2a + " = " + "\(1/rate)")
-        }
-        else {
-            print("Not supported.")
-            return nil
-        }
+        return(value * eur2x, "Exchange Rate: EUR2" + targetCurrency.currency + " \(eur2x)")
+        
     }
 }
 
 extension Double {
     func convertDouble(valute: Currency) -> (Double, String)? {
-        if let x = ConverterBrain.sharedConverter.convert(self, startCurrency: "EUR", targetCurrency: valute) {
+        if let x = ConverterBrain.sharedConverter.convert(self, targetCurrency: valute) {
             return x
         }
         return nil

@@ -101,8 +101,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="ru8-s7-sgq"/>
                                 <exclude reference="3Bu-aO-aEL"/>
+                                <exclude reference="ru8-s7-sgq"/>
                             </mask>
                         </variation>
                     </view>

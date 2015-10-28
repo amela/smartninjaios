@@ -10,11 +10,9 @@ import UIKit
 
 
 class ViewController: UIViewController,UITextFieldDelegate {
-    
-    let eurInstance = Currency(currency:"EUR")
-    let usdInstance = Currency(currency:"USD")
-    let jpyInstance = Currency(currency:"JPY")
-    
+    let eurInstance = Currency(currency:"EUR", exchangeRate: 1.0)
+    let usdInstance = Currency(currency:"USD", exchangeRate: 1.13585)
+    let jpyInstance = Currency(currency:"JPY", exchangeRate: 136.044562)
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var resultLabel: UILabel!
@@ -27,17 +25,17 @@ class ViewController: UIViewController,UITextFieldDelegate {
                 if let num = Double(textField.text!) {
                     switch(text!) {
                     case "USD":
-                        if let usd = ConverterBrain.sharedConverter.convert(num, startCurrency:"EUR", targetCurrency:usdInstance) {
+                        if let usd = ConverterBrain.sharedConverter.convert(num, targetCurrency:usdInstance) {
                             resultLabel.text = String(format: " = %.2f $", usd.0)
                         }
                     
                     case "JPY":
-                        if let jpy = ConverterBrain.sharedConverter.convert(num, startCurrency:"EUR", targetCurrency:jpyInstance) {
+                        if let jpy = ConverterBrain.sharedConverter.convert(num, targetCurrency:jpyInstance) {
                             resultLabel.text = String(format: " = %.2f ¥", jpy.0)
                         }
                         
                     case "EUR":
-                        if let eur = ConverterBrain.sharedConverter.convert(num, startCurrency:"EUR", targetCurrency:eurInstance) {
+                        if let eur = ConverterBrain.sharedConverter.convert(num, targetCurrency:eurInstance) {
                             resultLabel.text = String(format: " = %.2f €", eur.0)
                         }
                         
@@ -53,8 +51,6 @@ class ViewController: UIViewController,UITextFieldDelegate {
             }
         }
     }
-    
-
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
         view.endEditing(true)
