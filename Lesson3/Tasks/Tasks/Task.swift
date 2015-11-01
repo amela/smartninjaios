@@ -9,10 +9,12 @@ stanje.
 */
 
 import Foundation
+import UIKit
 
 class Task: NSObject {
     var dateChange: NSDate?
     let dateAdd: NSDate
+    var img : UIImage?
     
     var name: String {
         didSet{ self.dateChange = NSDate() }

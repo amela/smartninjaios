@@ -8,13 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, SelectedImageDelegate {
     
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var priority: UITextField!
     @IBOutlet weak var notification: UILabel!
     
     @IBOutlet weak var lastTask: UILabel!
+    
+    var img : UIImage?
     
     @IBAction func addTask(sender: UIButton) {
         let nameVar = name.text
@@ -37,12 +39,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
         lastTask.text = (TaskManager.sharedTM.tasks.last?.name)! + " add " + dateString
     }
     
+    func selectedImage(img : UIImage) {
+        self.img = img
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         notification.text = String(TaskManager.sharedTM.tasks.count)
         
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "MySegue"{
+            let vc = segue.destinationViewController as! ViewController2
+            vc.delegate = self
+            //print("sem v segue")
+        }
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
