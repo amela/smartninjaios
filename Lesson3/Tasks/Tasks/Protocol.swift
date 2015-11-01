@@ -7,3 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
+@objc protocol SelectedImageDelegate {
+    func selectedImage(image : UIImage)
+}
