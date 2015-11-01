@@ -44,7 +44,7 @@
                                     <color key="titleColor" red="1" green="0.16764535991812235" blue="0.7850477041339895" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="convertButtons:" destination="NOa-98-U8i" eventType="touchUpInside" id="591-BU-GXZ"/>
+                                    <action selector="selectButton:" destination="NOa-98-U8i" eventType="touchUpInside" id="Afb-98-F45"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amR-DT-jSd">
@@ -55,10 +55,10 @@
                                     <color key="titleColor" red="1" green="0.16764535991812235" blue="0.7850477041339895" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="convertButtons:" destination="NOa-98-U8i" eventType="touchUpInside" id="Pm4-rW-c9C"/>
+                                    <action selector="selectButton:" destination="NOa-98-U8i" eventType="touchUpInside" id="F4f-kh-gDa"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edw-fT-Y86">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edw-fT-Y86">
                                 <rect key="frame" x="67" y="173" width="33" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
@@ -66,17 +66,47 @@
                                     <color key="titleColor" red="1" green="0.16764535991812235" blue="0.7850477041339895" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="convertButtons:" destination="NOa-98-U8i" eventType="touchUpInside" id="PSi-a2-Hed"/>
+                                    <action selector="selectButton:" destination="NOa-98-U8i" eventType="touchUpInside" id="J3D-Lj-nJz"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" = X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k1J-bT-DhB">
-                                <rect key="frame" x="20" y="277" width="398" height="58.5"/>
+                                <rect key="frame" x="20" y="323" width="398" height="58.5"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="49"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mr-tq-qJo">
+                                <rect key="frame" x="83" y="212" width="153" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Set to current location"/>
+                                <connections>
+                                    <action selector="setLocation:" destination="NOa-98-U8i" eventType="touchUpInside" id="Ueq-rf-jaT"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a94-cD-8Lo">
+                                <rect key="frame" x="13" y="32" width="395" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Coordinate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qb-cH-GDh">
+                                <rect key="frame" x="13" y="61" width="395" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fW-Ua-m3r">
+                                <rect key="frame" x="132" y="265" width="55" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Convert"/>
+                                <connections>
+                                    <action selector="convertButton:" destination="NOa-98-U8i" eventType="touchUpInside" id="UPe-gb-8AO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -85,7 +115,7 @@
                             <constraint firstItem="G8c-mc-KUL" firstAttribute="top" secondItem="vlf-mY-NGE" secondAttribute="bottom" constant="100" id="3yq-my-PMs"/>
                             <constraint firstItem="wSH-5G-VxW" firstAttribute="leading" secondItem="vJ8-ls-sFw" secondAttribute="leadingMargin" constant="-7" id="9gm-mF-Hkj"/>
                             <constraint firstItem="wSH-5G-VxW" firstAttribute="centerY" secondItem="G8c-mc-KUL" secondAttribute="centerY" id="9rT-jm-SXw"/>
-                            <constraint firstItem="k1J-bT-DhB" firstAttribute="top" secondItem="e9m-LW-yP8" secondAttribute="bottom" constant="74" id="D8h-1i-K0p"/>
+                            <constraint firstItem="k1J-bT-DhB" firstAttribute="top" secondItem="e9m-LW-yP8" secondAttribute="bottom" constant="120" id="D8h-1i-K0p"/>
                             <constraint firstItem="edw-fT-Y86" firstAttribute="centerY" secondItem="e9m-LW-yP8" secondAttribute="centerY" id="HHD-Wz-l1j"/>
                             <constraint firstAttribute="trailingMargin" secondItem="k1J-bT-DhB" secondAttribute="trailing" id="KUi-fz-var"/>
                             <constraint firstItem="G8c-mc-KUL" firstAttribute="leading" secondItem="wSH-5G-VxW" secondAttribute="trailing" constant="8" symbolic="YES" id="PSF-vO-Qmt"/>
@@ -108,8 +138,13 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad-2/3"/>
                     <connections>
+                        <outlet property="coordinateLabel" destination="2qb-cH-GDh" id="qsK-LS-0yw"/>
+                        <outlet property="countyLabel" destination="a94-cD-8Lo" id="ydx-rJ-QCU"/>
+                        <outlet property="eurButton" destination="e9m-LW-yP8" id="uvy-5g-T19"/>
+                        <outlet property="jpyButton" destination="amR-DT-jSd" id="Jtl-eq-xUy"/>
                         <outlet property="resultLabel" destination="k1J-bT-DhB" id="7bq-CS-1Pm"/>
                         <outlet property="textField" destination="G8c-mc-KUL" id="n0W-9G-jSk"/>
+                        <outlet property="usdButton" destination="edw-fT-Y86" id="cb8-XT-SNQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sct-DQ-RqR" userLabel="First Responder" sceneMemberID="firstResponder"/>
