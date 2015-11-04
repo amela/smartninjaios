@@ -11,20 +11,15 @@ import UIKit
 
 class ReceiveMessageVC: UIViewController, Message {
 
-    
     @IBOutlet weak var receivedTextField: UITextView!
     
-    var sporocilo : String?
+    var sporocilo = [String]()
     
-    func theMessage (sporocilo : String) {
+    func theMessage (sporocilo : [String]) {
         self.sporocilo = sporocilo
-        receivedTextField.text = self.sporocilo
+        
+        receivedTextField.text = self.sporocilo.joinWithSeparator(" : ")
         //print("sporocilo delegate dela")
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        //print(self.sporocilo)
     }
     
     override func viewDidLoad() {
@@ -33,18 +28,10 @@ class ReceiveMessageVC: UIViewController, Message {
         let vc = self.tabBarController?.viewControllers![0] as! SendMessageVC
         vc.delegate = self
         
-        receivedTextField.text = self.sporocilo
+        receivedTextField.text = self.sporocilo.joinWithSeparator(" : ")
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    override func loadView() {
-        super.loadView()
-        
-        let vc = self.tabBarController?.viewControllers![0] as! SendMessageVC
-        vc.delegate = self
-
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

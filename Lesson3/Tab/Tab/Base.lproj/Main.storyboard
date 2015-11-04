@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9048"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Read Messages-->
         <scene sceneID="ePl-7m-iuB">
             <objects>
                 <viewController id="BO3-X4-Bki" customClass="ReceiveMessageVC" customModule="Tab" customModuleProvider="target" sceneMemberID="viewController">
@@ -28,7 +28,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="yxs-9a-IHb"/>
+                    <tabBarItem key="tabBarItem" title="Read Messages" image="ion-ios-email-outline_30_10_000000_none" id="yxs-9a-IHb"/>
                     <connections>
                         <outlet property="receivedTextField" destination="vR7-gm-tYd" id="yS3-qX-LqJ"/>
                     </connections>
@@ -37,7 +37,7 @@
             </objects>
             <point key="canvasLocation" x="1902" y="889"/>
         </scene>
-        <!--Item 1-->
+        <!--Send Message-->
         <scene sceneID="DcB-s4-aDX">
             <objects>
                 <viewController id="IY9-1j-t9C" customClass="SendMessageVC" customModule="Tab" customModuleProvider="target" sceneMemberID="viewController">
@@ -49,26 +49,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Vnesi besedilo" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TZA-id-0Fb">
-                                <rect key="frame" x="20" y="28" width="240" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TZA-id-0Fb">
+                                <rect key="frame" x="20" y="77" width="277" height="216"/>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.80955997394691503" green="0.9142295578791817" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="alphabet"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFS-GP-agf">
-                                <rect key="frame" x="20" y="181" width="36" height="30"/>
+                                <rect key="frame" x="20" y="325" width="277" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Send"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="sendButton:" destination="IY9-1j-t9C" eventType="touchUpInside" id="Xzy-nZ-dBQ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vnesi besedilo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmF-FK-gQe">
+                                <rect key="frame" x="20" y="48" width="190" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="lHy-Od-QOG"/>
+                    <tabBarItem key="tabBarItem" title="Send Message" image="fa-send-o_30_10_000000_none" id="lHy-Od-QOG"/>
                     <connections>
                         <outlet property="sendTextField" destination="TZA-id-0Fb" id="nGM-Jo-rpW"/>
                     </connections>
@@ -97,4 +107,8 @@
             <point key="canvasLocation" x="1082" y="561"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fa-send-o_30_10_000000_none" width="50" height="50"/>
+        <image name="ion-ios-email-outline_30_10_000000_none" width="50" height="50"/>
+    </resources>
 </document>

@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol Message : NSObjectProtocol {
-    func theMessage (sporocilo : String)
+protocol Message {
+    func theMessage (sporocilo : [String])
 }

@@ -13,23 +13,29 @@ class SendMessageVC: UIViewController {
     var sporocilo : String?
     var delegate : Message?
     
+    let defaults = NSUserDefaults.standardUserDefaults()
+    var allMessage = [String]()
     
     @IBOutlet weak var sendTextField: UITextView!
     
-    
     @IBAction func sendButton(sender: UIButton) {
         sporocilo = sendTextField.text
-        delegate?.theMessage(sporocilo!)
+        allMessage.append(sporocilo!)
+        
+        defaults.setObject(allMessage, forKey: "SavedArray")
+        delegate?.theMessage(allMessage)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         for vc in (self.tabBarController?.viewControllers!)! {
-            vc.loadView()
+            vc.loadViewIfNeeded()
         }
         
-        //sporocilo = "test"
+        allMessage = defaults.objectForKey("SavedArray") as? [String] ?? [String]()
+        delegate?.theMessage(allMessage)
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -37,6 +43,4 @@ class SendMessageVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
 }
