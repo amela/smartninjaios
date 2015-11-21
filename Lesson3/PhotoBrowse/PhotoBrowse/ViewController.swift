@@ -72,8 +72,5 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
 }
 
-class CollectionCell: UICollectionViewCell {
-    
-    @IBOutlet weak var cellImage: UIImageView!
-}
+
 

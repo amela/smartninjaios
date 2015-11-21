@@ -55,7 +55,7 @@
                                         </constraints>
                                         <size key="customSize" width="243" height="193"/>
                                         <connections>
-                                            <outlet property="cellImage" destination="cDt-Z2-EQq" id="cCi-d9-HH7"/>
+                                            <outlet property="cellImage" destination="cDt-Z2-EQq" id="egr-pi-Z4Z"/>
                                             <segue destination="0dg-pE-kps" kind="show" id="9UZ-RR-NXR"/>
                                         </connections>
                                     </collectionViewCell>
@@ -119,22 +119,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lzW-vX-Fpi">
-                                <rect key="frame" x="30" y="74" width="540" height="426"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JM8-2g-cPk">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
-                            </imageView>
+                            </scrollView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="lzW-vX-Fpi" firstAttribute="top" secondItem="VkE-c2-U7g" secondAttribute="bottom" constant="10" id="7on-xx-bFv"/>
-                            <constraint firstItem="lzW-vX-Fpi" firstAttribute="leading" secondItem="cak-JR-7nR" secondAttribute="leadingMargin" constant="10" id="THX-um-rSN"/>
-                            <constraint firstItem="IdS-pT-MdR" firstAttribute="top" secondItem="lzW-vX-Fpi" secondAttribute="bottom" constant="100" id="kby-g4-xy8"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="lzW-vX-Fpi" secondAttribute="trailing" constant="10" id="qJV-mc-qXb"/>
+                            <constraint firstAttribute="trailing" secondItem="JM8-2g-cPk" secondAttribute="trailing" id="LXi-NF-HcD"/>
+                            <constraint firstItem="JM8-2g-cPk" firstAttribute="leading" secondItem="cak-JR-7nR" secondAttribute="leading" id="U2A-qJ-cCS"/>
+                            <constraint firstItem="JM8-2g-cPk" firstAttribute="top" secondItem="cak-JR-7nR" secondAttribute="topMargin" id="fT1-dV-mcx"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="JM8-2g-cPk" secondAttribute="bottom" id="grB-lp-Qi5"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="lzW-vX-Fpi" id="7yR-qK-XYc"/>
+                        <outlet property="scrollView" destination="JM8-2g-cPk" id="9ls-z7-9pS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GVf-X5-Xgk" userLabel="First Responder" sceneMemberID="firstResponder"/>
