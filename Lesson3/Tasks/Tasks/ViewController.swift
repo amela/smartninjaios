@@ -37,6 +37,8 @@ class ViewController: UIViewController, UITextFieldDelegate, SelectedImageDelega
         
         let dateString = formatter.stringFromDate((TaskManager.sharedTM.tasks.last?.dateAdd)!)
         lastTask.text = (TaskManager.sharedTM.tasks.last?.name)! + " add " + dateString
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("Added Task", object: self)
     }
     
     func selectedImage(img : UIImage) {
