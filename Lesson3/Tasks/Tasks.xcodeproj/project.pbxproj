@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A10B0A441C0241FE00245A14 /* TaskInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10B0A431C0241FE00245A14 /* TaskInfo.swift */; };
+		A10B0A461C025F9400245A14 /* SetAllFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10B0A451C025F9400245A14 /* SetAllFonts.swift */; };
 		A1AAA3E51BD7C417004A1DA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AAA3E41BD7C417004A1DA3 /* AppDelegate.swift */; };
 		A1AAA3E71BD7C417004A1DA3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AAA3E61BD7C417004A1DA3 /* ViewController.swift */; };
 		A1AAA3EA1BD7C417004A1DA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1AAA3E81BD7C417004A1DA3 /* Main.storyboard */; };
@@ -23,7 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A10B0A431C0241FE00245A14 /* TaskInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskInfo.swift; path = Tasks/TaskInfo.swift; sourceTree = "<group>"; };
+		A10B0A431C0241FE00245A14 /* TaskInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskInfo.swift; sourceTree = "<group>"; };
+		A10B0A451C025F9400245A14 /* SetAllFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetAllFonts.swift; path = ../SetAllFonts.swift; sourceTree = "<group>"; };
 		A1AAA3E11BD7C417004A1DA3 /* Tasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AAA3E41BD7C417004A1DA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1AAA3E61BD7C417004A1DA3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,7 +56,6 @@
 		A1AAA3D81BD7C417004A1DA3 = {
 			isa = PBXGroup;
 			children = (
-				A10B0A431C0241FE00245A14 /* TaskInfo.swift */,
 				A1AAA3E31BD7C417004A1DA3 /* Tasks */,
 				A1AAA3E21BD7C417004A1DA3 /* Products */,
 			);
@@ -71,6 +72,8 @@
 		A1AAA3E31BD7C417004A1DA3 /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
+				A10B0A431C0241FE00245A14 /* TaskInfo.swift */,
+				A10B0A451C025F9400245A14 /* SetAllFonts.swift */,
 				A1F7BD331BD93D2B0069ABCF /* Lecture4 */,
 				A1AAA3F61BD7C467004A1DA3 /* Task.swift */,
 				A1AAA3FA1BD7C634004A1DA3 /* TaskManager.swift */,
@@ -173,6 +176,7 @@
 				A1AAA3F91BD7C47C004A1DA3 /* State.swift in Sources */,
 				A1F7BD3B1BDE76FC0069ABCF /* Protocols.swift in Sources */,
 				A1AAA3FB1BD7C634004A1DA3 /* TaskManager.swift in Sources */,
+				A10B0A461C025F9400245A14 /* SetAllFonts.swift in Sources */,
 				A1F7FF5B1BE6BBC80010CE1A /* ViewConroller2.swift in Sources */,
 				A1F7FF5D1BE6BC700010CE1A /* Protocol.swift in Sources */,
 				A1AAA3F71BD7C467004A1DA3 /* Task.swift in Sources */,

@@ -26,17 +26,14 @@ class ViewController2: UIViewController, UIImagePickerControllerDelegate, UINavi
                 delegate.selectedImage(img)
             }
         }
-        self.dismissViewControllerAnimated(false, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
    
-    
-    
     @IBAction func loadImage(sender: UIButton) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .PhotoLibrary
         
         presentViewController(imagePicker, animated: true, completion: nil)
-        
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
@@ -54,10 +51,16 @@ class ViewController2: UIViewController, UIImagePickerControllerDelegate, UINavi
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UIView.animateWithDuration(3.0, animations: {
+            self.imageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+            }, completion: { success in
+                UIView.animateWithDuration(3.0) {
+                    self.imageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI + M_PI))
+                }
+        })
         
         imagePicker.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
