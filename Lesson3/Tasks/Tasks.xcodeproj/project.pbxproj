@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A10AA7C41C0EFF1A00555BB4 /* TableTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AA7C31C0EFF1A00555BB4 /* TableTasksViewController.swift */; };
 		A10B0A441C0241FE00245A14 /* TaskInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10B0A431C0241FE00245A14 /* TaskInfo.swift */; };
 		A10B0A461C025F9400245A14 /* SetAllFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10B0A451C025F9400245A14 /* SetAllFonts.swift */; };
 		A1AAA3E51BD7C417004A1DA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AAA3E41BD7C417004A1DA3 /* AppDelegate.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A10AA7C31C0EFF1A00555BB4 /* TableTasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTasksViewController.swift; sourceTree = "<group>"; };
 		A10B0A431C0241FE00245A14 /* TaskInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskInfo.swift; sourceTree = "<group>"; };
 		A10B0A451C025F9400245A14 /* SetAllFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetAllFonts.swift; path = ../SetAllFonts.swift; sourceTree = "<group>"; };
 		A1AAA3E11BD7C417004A1DA3 /* Tasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +85,7 @@
 				A1AAA3E61BD7C417004A1DA3 /* ViewController.swift */,
 				A1F7FF5A1BE6BBC80010CE1A /* ViewConroller2.swift */,
 				A1F7FF5C1BE6BC700010CE1A /* Protocol.swift */,
+				A10AA7C31C0EFF1A00555BB4 /* TableTasksViewController.swift */,
 				A1AAA3E81BD7C417004A1DA3 /* Main.storyboard */,
 				A1AAA3EB1BD7C417004A1DA3 /* Assets.xcassets */,
 				A1AAA3ED1BD7C417004A1DA3 /* LaunchScreen.storyboard */,
@@ -173,6 +176,7 @@
 			files = (
 				A10B0A441C0241FE00245A14 /* TaskInfo.swift in Sources */,
 				A1AAA3E71BD7C417004A1DA3 /* ViewController.swift in Sources */,
+				A10AA7C41C0EFF1A00555BB4 /* TableTasksViewController.swift in Sources */,
 				A1AAA3F91BD7C47C004A1DA3 /* State.swift in Sources */,
 				A1F7BD3B1BDE76FC0069ABCF /* Protocols.swift in Sources */,
 				A1AAA3FB1BD7C634004A1DA3 /* TaskManager.swift in Sources */,

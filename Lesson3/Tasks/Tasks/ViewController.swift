@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate, SelectedImageDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, SelectedImageDelegate {
     
     // MARK: - Outlets
     
@@ -21,6 +21,8 @@ class ViewController: UIViewController, UITextFieldDelegate, SelectedImageDelega
     @IBOutlet weak var priority: UISlider!
     var img : UIImage?
     
+    @IBOutlet weak var taskDescription: UITextView!
+    
     // MARK: - Actions
     
     @IBAction func addTask(sender: UIButton) {
@@ -28,7 +30,7 @@ class ViewController: UIViewController, UITextFieldDelegate, SelectedImageDelega
         let priorityVar = priority.value
         
         if let x = nameVar{
-            let task = Task(name:x)
+            let task = Task(name:x, state:.ToDo)
                 task.priority = Int(priorityVar)
                 TaskManager.sharedTM.addTask(task)
         }
@@ -79,11 +81,24 @@ class ViewController: UIViewController, UITextFieldDelegate, SelectedImageDelega
     
     func textFieldDidEndEditing(textField: UITextField) {
         print("ENDED EDITING")
-        
         if (textField == self.name){
             print("dsads")
         }
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return true
+        }
+        return true
+    }
+    
     
     // MARK: - Other
     
@@ -93,6 +108,9 @@ class ViewController: UIViewController, UITextFieldDelegate, SelectedImageDelega
         setAllLabelsCustomFont(self.view)
         
         notification.text = String(TaskManager.sharedTM.tasks.count)
+        
+        name.delegate = self
+        taskDescription.delegate = self
         
         // Do any additional setup after loading the view, typically from a nib.
     }

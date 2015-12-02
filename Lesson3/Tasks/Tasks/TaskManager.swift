@@ -28,6 +28,8 @@ class TaskManager: NSObject {
         
         NSUserDefaults.standardUserDefaults().setObject(tasksData, forKey: "tasks")
         NSUserDefaults.standardUserDefaults().synchronize()
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("AddedTask", object: nil)
     }
     
     func removeTask(task: Task) {
