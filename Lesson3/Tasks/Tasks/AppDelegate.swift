@@ -15,10 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        //printKvadrat()
+        //var test = Task(name: "Test")
+        //TaskManager.sharedTM.tasks = [test]
         
         let tasksArchived = NSUserDefaults.standardUserDefaults().objectForKey("tasks") as? NSData ?? NSData()
         TaskManager.sharedTM.tasks = TaskManager.sharedTM.load(tasksArchived)
+        
+        print(TaskManager.sharedTM.tasks)
         
         // Override point for customization after application launch.
         return true
@@ -45,6 +48,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tasksData = NSKeyedArchiver.archivedDataWithRootObject(TaskManager.sharedTM.tasks)
         NSUserDefaults.standardUserDefaults().setObject(tasksData, forKey: "tasks")
         NSUserDefaults.standardUserDefaults().synchronize()
+        
+        print("grem v background")
+        
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
@@ -62,7 +68,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSUserDefaults.standardUserDefaults().setObject(tasksData, forKey: "tasks")
         NSUserDefaults.standardUserDefaults().synchronize()
         
-        print("pognal sem tole")
+        //TaskManager.sharedTM.tasks = []
+        
+        print("terminiral bom")
         
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }

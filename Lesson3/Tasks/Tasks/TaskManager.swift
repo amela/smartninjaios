@@ -24,10 +24,10 @@ class TaskManager: NSObject {
     func addTask(task: Task) {
         self.tasks.append(task)
         
-        //let tasksData = NSKeyedArchiver.archivedDataWithRootObject(tasks)
+        let tasksData = NSKeyedArchiver.archivedDataWithRootObject(tasks)
         
-        //NSUserDefaults.standardUserDefaults().setObject(tasksData, forKey: "tasks")
-        //NSUserDefaults.standardUserDefaults().synchronize()
+        NSUserDefaults.standardUserDefaults().setObject(tasksData, forKey: "tasks")
+        NSUserDefaults.standardUserDefaults().synchronize()
     }
     
     func removeTask(task: Task) {
