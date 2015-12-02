@@ -11,14 +11,18 @@ import UIKit
 
 class ViewController2: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var delegate : SelectedImageDelegate?
+    // MARK: - Delegate var
     
+    weak var delegate : SelectedImageDelegate?
+    
+    // MARK: - Outlets
     
     @IBOutlet weak var sizeImage: UILabel!
     
-    let imagePicker = UIImagePickerController()
-    
     @IBOutlet weak var imageView: UIImageView!
+
+    
+    // MARK: - Actions
     
     @IBAction func close(sender: UIButton) {
         if let delegate = delegate {
@@ -26,6 +30,7 @@ class ViewController2: UIViewController, UIImagePickerControllerDelegate, UINavi
                 delegate.selectedImage(img)
             }
         }
+        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
    
@@ -35,6 +40,10 @@ class ViewController2: UIViewController, UIImagePickerControllerDelegate, UINavi
         
         presentViewController(imagePicker, animated: true, completion: nil)
     }
+    
+    // MARK: - Image Picker
+    
+    let imagePicker = UIImagePickerController()
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -50,6 +59,8 @@ class ViewController2: UIViewController, UIImagePickerControllerDelegate, UINavi
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    // MARK: - Other
     
     override func viewDidLoad() {
         super.viewDidLoad()

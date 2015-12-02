@@ -9,6 +9,6 @@
 import Foundation
 import UIKit
 
-protocol SelectedImageDelegate {
+protocol SelectedImageDelegate: class {
     func selectedImage(image : UIImage)
 }

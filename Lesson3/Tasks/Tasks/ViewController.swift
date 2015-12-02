@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate, SelectedImageDelegate {
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var name: UITextField!
 
     @IBOutlet weak var notification: UILabel!
@@ -18,6 +20,8 @@ class ViewController: UIViewController, UITextFieldDelegate, SelectedImageDelega
     
     @IBOutlet weak var priority: UISlider!
     var img : UIImage?
+    
+    // MARK: - Actions
     
     @IBAction func addTask(sender: UIButton) {
         let nameVar = name.text
@@ -65,9 +69,23 @@ class ViewController: UIViewController, UITextFieldDelegate, SelectedImageDelega
             
     }
     
+    // MARK: - Image Setter
+    
     func selectedImage(img : UIImage) {
         self.img = img
     }
+    
+    // MARK: - Delegate Functions
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        print("ENDED EDITING")
+        
+        if (textField == self.name){
+            print("dsads")
+        }
+    }
+    
+    // MARK: - Other
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,14 +102,6 @@ class ViewController: UIViewController, UITextFieldDelegate, SelectedImageDelega
             let vc = segue.destinationViewController as! ViewController2
             vc.delegate = self
             //print("sem v segue")
-        }
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        print("ENDED EDITING")
-        
-        if (textField == self.name){
-            print("dsads")
         }
     }
 

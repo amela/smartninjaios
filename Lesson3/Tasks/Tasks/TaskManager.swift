@@ -12,18 +12,22 @@ class TaskManager: NSObject {
     
     static let sharedTM = TaskManager()
     
+    /*
     lazy var tasks: [Task] = {
             let tasksArchived = NSUserDefaults.standardUserDefaults().objectForKey("tasks") as? NSData ?? NSData()
             return (TaskManager.sharedTM.load(tasksArchived))
     }()
+    */
+    
+    var tasks: [Task] = [Task]()
     
     func addTask(task: Task) {
         self.tasks.append(task)
         
-        let tasksData = NSKeyedArchiver.archivedDataWithRootObject(tasks)
+        //let tasksData = NSKeyedArchiver.archivedDataWithRootObject(tasks)
         
-        NSUserDefaults.standardUserDefaults().setObject(tasksData, forKey: "tasks")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        //NSUserDefaults.standardUserDefaults().setObject(tasksData, forKey: "tasks")
+        //NSUserDefaults.standardUserDefaults().synchronize()
     }
     
     func removeTask(task: Task) {
