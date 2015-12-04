@@ -33,10 +33,12 @@ class TaskManager: NSObject {
     }
     
     func removeTask(task: Task) {
+        print ("removam task")
         if let index = self.tasks.findFirstMatching( { $0.name == task.name && $0.dateAdd == task.dateAdd} ) {
             self.tasks.removeAtIndex(index)
             
-            NSUserDefaults.standardUserDefaults().setObject(tasks, forKey: "tasks")
+            let tasksData = NSKeyedArchiver.archivedDataWithRootObject(self.tasks)
+            NSUserDefaults.standardUserDefaults().setObject(tasksData, forKey: "tasks")
             NSUserDefaults.standardUserDefaults().synchronize()
             
         } else {
@@ -47,8 +49,8 @@ class TaskManager: NSObject {
     func load (data: NSData) -> [Task] {
         if let array = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [Task] {
             return(array)
-        }
-        else {
+            
+        } else {
             return [Task]()
         }
     }

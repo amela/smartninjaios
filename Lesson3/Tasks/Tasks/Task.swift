@@ -52,7 +52,7 @@ class Task: NSObject {
     }
 }
 
-//extension Task: Equatable {}
+//MARK: - Extension
 
 func ==(lhs: Task, rhs: Task) -> Bool {
     return (lhs.name == rhs.name && lhs.dateChange == rhs.dateChange && rhs.state == lhs.state && rhs.priority == lhs.priority)

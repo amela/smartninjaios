@@ -9,7 +9,6 @@
 import UIKit
 
 
-
 class TaskInfo: UIViewController {
     
     var myAttributedText = NSMutableAttributedString()

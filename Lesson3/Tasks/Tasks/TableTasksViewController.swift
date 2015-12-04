@@ -72,6 +72,8 @@ class TableTasksViewController: UITableViewController {
         }
     }
     
+    
+    
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         if indexPath.row < mySections[indexPath.section].count {
             if mySections[indexPath.section][indexPath.row].state == .ToDo {
@@ -102,6 +104,13 @@ class TableTasksViewController: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("Celica", forIndexPath: indexPath) as! TableCells
             
             cell.nameLabel?.text = mySections[indexPath.section][indexPath.row].name
+            
+            if cell.gestureRecognizers == nil || cell.gestureRecognizers?.count == 0 {
+                let recognizer = UILongPressGestureRecognizer(target: self, action: "testGesture:")
+                recognizer.minimumPressDuration = 1.8
+                
+                cell.addGestureRecognizer(recognizer)
+            }
         
             print(String(mySections[indexPath.section][indexPath.row].name) + String(mySections[indexPath.section][indexPath.row].state))
             
@@ -129,6 +138,41 @@ class TableTasksViewController: UITableViewController {
         //self.tableView.dataSource = self
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reload", name: "AddedTask", object: nil)
+        
+    }
+    
+    func testGesture (recognizer: UILongPressGestureRecognizer) {
+        print("Gesture")
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+            print("Cancelled")
+        }
+        alertController.addAction(cancelAction)
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .Destructive) { (action) in
+            print("omg tu sem")
+            
+            if let cell = recognizer.view as? UITableViewCell {
+                let indexPath = self.tableView.indexPathForCell(cell)!
+                
+                
+                if indexPath.section == 0 {
+                    print("sekcija 0")
+                    print(self.mySections[0][indexPath.row].name)
+                    TaskManager.sharedTM.removeTask(self.mySections[0][indexPath.row])
+                    self.tableView.reloadData()
+                }
+                
+        
+                
+            }
+        }
+        alertController.addAction(deleteAction)
+        
+        self.presentViewController(alertController, animated: true) {
+            print("bla")
+        }
     }
     
     func reload () {
@@ -143,6 +187,8 @@ class TableTasksViewController: UITableViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
+    
+    
 }
 
 // MARK: - Cell Class
@@ -150,5 +196,7 @@ class TableTasksViewController: UITableViewController {
 class TableCells : UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
+    
+    
     
 }
