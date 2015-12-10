@@ -72,8 +72,6 @@ class TableTasksViewController: UITableViewController {
         }
     }
     
-    
-    
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         if indexPath.row < mySections[indexPath.section].count {
             if mySections[indexPath.section][indexPath.row].state == .ToDo {
@@ -155,19 +153,16 @@ class TableTasksViewController: UITableViewController {
             
             if let cell = recognizer.view as? UITableViewCell {
                 let indexPath = self.tableView.indexPathForCell(cell)!
-                
-                
+
                 if indexPath.section == 0 {
                     print("sekcija 0")
                     print(self.mySections[0][indexPath.row].name)
                     TaskManager.sharedTM.removeTask(self.mySections[0][indexPath.row])
                     self.tableView.reloadData()
                 }
-                
-        
-                
             }
         }
+        
         alertController.addAction(deleteAction)
         
         self.presentViewController(alertController, animated: true) {
@@ -187,8 +182,6 @@ class TableTasksViewController: UITableViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
-    
-    
 }
 
 // MARK: - Cell Class

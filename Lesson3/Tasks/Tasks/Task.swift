@@ -43,12 +43,42 @@ class Task: NSObject {
         aCoder.encodeInteger(priority, forKey: "priority")
     }
     
+    struct FormatDate {
+        static var formatter : NSDateFormatter {
+            let format = NSDateFormatter()
+            format.dateStyle = .FullStyle
+            
+            return format
+        }
+    }
+    
     required init(coder aDecoder: NSCoder) {
         self.dateChange = aDecoder.decodeObjectForKey( "dateChange" ) as? NSDate
         self.dateAdd = aDecoder.decodeObjectForKey( "dateAdd" ) as! NSDate
         self.name = aDecoder.decodeObjectForKey( "name" ) as! String
         self.state = State(rawValue: aDecoder.decodeIntegerForKey("state"))!
         self.priority = aDecoder.decodeIntegerForKey( "priority" )
+    }
+    
+    func toDictionary () -> [String : AnyObject] {
+        var data : [String : AnyObject] = ["name" : self.name, "dateChange" : FormatDate.formatter.stringFromDate(self.dateChange!), "dateAdd" : FormatDate.formatter.stringFromDate(self.dateAdd), "priority" : self.priority, "state" : self.state.rawValue ]
+    
+        return data
+    }
+    
+    init (dictionary: [String : AnyObject]) {
+        self.name = dictionary["name"] as! String
+        self.priority = dictionary["priority"] as! Int
+        self.dateAdd = FormatDate.formatter.dateFromString(dictionary["dateAdd"] as! String)!
+        self.dateChange = FormatDate.formatter.dateFromString(dictionary["dateChange"] as! String)!
+
+        self.state = State(rawValue: (dictionary["state"] as! Int))!
+        
+        /*
+        if let notes = dictionary["notes"] as? String {
+            self.notes = notes
+        }
+        */
     }
 }
 

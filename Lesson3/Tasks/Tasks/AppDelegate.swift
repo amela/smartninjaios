@@ -16,12 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         //var test = Task(name: "Test")
-        //TaskManager.sharedTM.tasks = [test]
+        TaskManager.sharedTM.tasks = TaskManager.sharedTM.load()
         
-        let tasksArchived = NSUserDefaults.standardUserDefaults().objectForKey("tasks") as? NSData ?? NSData()
-        TaskManager.sharedTM.tasks = TaskManager.sharedTM.load(tasksArchived)
+        //let tasksArchived = NSUserDefaults.standardUserDefaults().objectForKey("tasks") as? NSData ?? NSData()
+        //TaskManager.sharedTM.tasks = TaskManager.sharedTM.load(tasksArchived)
         
-        print(TaskManager.sharedTM.tasks)
+        //print(TaskManager.sharedTM.tasks)
         
         // Override point for customization after application launch.
         return true
